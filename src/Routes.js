@@ -3,6 +3,10 @@ import { isAuthenticated } from './Auth.js';
 
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
+import Login from './pages/Login';
+import Initial from './pages/Initial';
+import Perfil from './pages/Perfil';
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route { ...rest } render={props => (
     isAuthenticated() ? (
@@ -16,9 +20,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path='/' component={() => <h1>Opa meu bomm</h1>} />
-      <Route exact path='/login' component={() => <h1>login</h1>} />
-      <PrivateRoute path='/perfil' component={() => <h1>Autenticadissimo</h1>} />
+      <PrivateRoute exact path='/' component={() => <Initial/>} />
+      <Route exact path='/login' component={() => <Login/>} />
+      <PrivateRoute path='/perfil' component={() => <Perfil/>} />
+      {/* <Route component={ () => <NotFound /> } /> criar página de 404*/}
     </Switch>
   </BrowserRouter>
 );

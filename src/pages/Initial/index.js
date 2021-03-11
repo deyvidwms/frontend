@@ -105,7 +105,6 @@ function Initial() {
 
 			<div className="modal-mask"></div>
 
-
     </div>
   );
 }
