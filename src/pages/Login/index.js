@@ -25,6 +25,8 @@ function Login() {
 
 				console.log(response);
 
+				console.log('senha', senha);
+
 			} else {
 				alert('verifique novamente a matrícula informada.');
 			}
