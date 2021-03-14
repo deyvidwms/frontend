@@ -15,13 +15,14 @@ function Login() {
 	async function handleLogin (event) {
 		event.preventDefault();
 	
-		console.log(event);
-
 		try {
 
 			if ( matricula.length === 7 || matricula.length === 14 ) {
 				
-				const response = await api.get('autentica.php');
+				const response = await api.post('api/autentica/', {
+					matricula,
+					senha,
+				});
 
 				console.log(response);
 
