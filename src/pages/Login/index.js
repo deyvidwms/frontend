@@ -1,10 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
+// import { useHistory } from 'react-router-dom';
+
+import api from '../../services/api';
 
 import './index.css';
 
 import Logo from '../../assets/images/logo-compacta.png';
 
 function Login() {
+
+	const [matricula, setMatricula] = useState('');
+	const [senha, setSenha] = useState('');
+	
+	async function handleLogin (event) {
+		event.preventDefault();
+	
+		console.log(event);
+
+		try {
+
+			if ( matricula.length === 7 || matricula.length === 14 ) {
+				
+				const response = await api.get('autentica.php');
+
+				console.log(response);
+
+			} else {
+				alert('verifique novamente a matrícula informada.');
+			}
+
+		} catch (error) {
+			alert(error);
+			// console.warn(error);
+		}
+
+	};
+
+
 	return (
 		
 		<div className="container">
@@ -13,9 +45,8 @@ function Login() {
 
 				<div className="bloco-login--card-form">
 
-					<form className="card-form--form-login">
+					<form onSubmit={handleLogin} className="card-form--form-login">
 
-						{/* <h1 className="form-login--title">To do Biguew</h1> */}
 						<div className="form-login--logo">
 
 							<img src={Logo} alt=""/>
@@ -24,11 +55,24 @@ function Login() {
 
 						<label htmlFor="">Login</label>
 						
-						<input type="text" placeholder="Digite o Usuário ou Email" />
+						<input 
+							type="text" 
+							pattern="[0-9]*" 
+							minLength="7" 
+							maxLength="14" 
+							placeholder="Digite sua matrícula"
+							onBlur={ e => setMatricula( e.target.value) }	
+							required
+						/>
 						
 						<label htmlFor="">Senha</label>
 						
-						<input type="password" placeholder="Digite sua senha" />
+						<input 
+							type="password" 
+							placeholder="Digite sua senha"
+							onBlur={ e => setSenha( e.target.value) }
+							required 
+						/>
 						
 						<input type="submit" value="Entrar"/>
 
