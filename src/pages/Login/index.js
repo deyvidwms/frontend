@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 
-// import api from '../../services/api';
-
 import './index.css';
 
 import Logo from '../../assets/images/logo-compacta.png';
@@ -45,19 +43,6 @@ function Login() {
 					}
 
 				};
-
-
-				// const response = await api.post('api/listas/', {
-				// const response = await api.post('api/autentica/', {
-				// 	matricula,
-				// 	senha,
-				// });
-
-				// const response = await api.get('api/autentica/');
-
-				// console.log(response);
-
-				console.log('senha', senha);
 
 			} else {
 				alert('verifique novamente a matrícula informada.');
