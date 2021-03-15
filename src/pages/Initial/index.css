@@ -9,8 +9,8 @@
     width: 100vw;
     height: 89vh;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
     overflow: auto;
 }
 

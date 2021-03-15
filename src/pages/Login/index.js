@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import './index.css';
 
@@ -10,6 +10,8 @@ function Login() {
 	const [matricula, setMatricula] = useState('');
 	const [senha, setSenha] = useState('');
 	
+	const history = useHistory();
+
 	async function handleLogin (event) {
 		event.preventDefault();
 	
@@ -17,23 +19,40 @@ function Login() {
 
 			if ( matricula.length === 7 || matricula.length === 14 ) {
 				
-				var xhr = new XMLHttpRequest();
+				let xhr = new XMLHttpRequest();
 
-				xhr.open("POST", "https://todobiguewapi.herokuapp.com/api/autentica");
+				// xhr.open("POST", "https://todobiguewapi.herokuapp.com/api/autentica");
+				xhr.open("POST", "http://127.0.0.1:8000/api/autentica");
+				// xhr.setRequestHeader('Content-type', 'application/json');
 				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-				xhr.send("matricula=20171104010072&senha=123456789");
+				xhr.send(`matricula=${matricula}&senha=${senha}`);
 				xhr.onreadystatechange = function() {
 
 					if (xhr.readyState === 4) {
 
 						if ( xhr.status === 200 ) {
 
-							//var respo//nse = JSON.parse(xhr.responseText);
-							
-							let response = xhr.responseText;
+							try {
 
-							console.log(response);
-							
+								let response = JSON.parse(xhr.responseText);
+
+								if ( ( typeof response.matricula != "undefined" && response.matricula.length > 0 ) && 
+									( typeof response.vinculo != "undefined" && response.vinculo.length > 0 ) ) {
+										
+									localStorage.setItem( "dadosUsuario", JSON.stringify(response) );
+									
+									history.push('/');
+
+								} else {
+									
+									console.log('falha ao tentar logar');
+
+								}
+
+							} catch (e) {
+								console.log(e);
+							}
+														
 						} else {
 
 							console.warn("Erro no servidor");

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Header from '../../components/Header';
 
@@ -12,7 +12,7 @@ function Perfil() {
       <div className="content--header">
       
         <h2 className="header--title">Meu perfil</h2>
-      
+        
         <hr className="header--divisor-title"/>
 
       </div>
@@ -24,7 +24,7 @@ function Perfil() {
           <div className="data-user-col--card">
 
             <h4>Nome: Deyvid William Silva de Medeiros</h4>
-            <h4>Matrícula: 20171104010072</h4>
+            <h4>Matrícula: </h4>
             <h4>E-mail: deyvidwms@gmail.com</h4>
             <h4>Vinculo: Aluno</h4>
 

@@ -1,15 +1,18 @@
-// import api from './services/api';
+export const isAuthenticated = () => {
+    try {
 
-// api.get("users/deyvidwms")
-// 		.then( (response) => { console.log(response.data) } )
-// 		.catch((err) => {
-// 			console.error("ops! ocorreu um erro" + err)
-// 		});
-
-// api.get("api/listas")
-// 		.then( (response) => { console.log(response.data) } )
-// 		.catch((err) => {
-// 			console.error("ops! ocorreu um erro" + err)
-// 		});
-
-export const isAuthenticated = () => false;
+        let dadosUsuario = JSON.parse( localStorage.getItem("dadosUsuario") ) || null;
+    
+        if ( dadosUsuario != null && 
+            ( typeof dadosUsuario.matricula != null && dadosUsuario.matricula.length > 0 ) &&
+            (typeof dadosUsuario.vinculo != null && dadosUsuario.vinculo.length > 0 )
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    
+    } catch (e) {
+        return false;
+    }    
+};
