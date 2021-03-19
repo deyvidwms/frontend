@@ -1,10 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Header from '../../components/Header';
+import Card from '../../components/Card';
+import CardReport from '../../components/CardReport';
 
 import './index.css'
 
+function getData() {
+  return JSON.parse( localStorage.getItem("dadosUsuario") ) || null;
+}
+
 function Perfil() {
+  let [dadosUsuario, setDadosUsuario] = useState( getData() );
+  let codigosDisciplinas = Object.keys( dadosUsuario.disciplinas.codigo_diario );
+  let dataCardReport = [];
+  let dataCardReportTwo = [];
+
+  for ( let i = 0; i < ( dadosUsuario.numero_disciplinas / 2 ); i++ ) {
+    dataCardReport.push(
+      <CardReport 
+        key={codigosDisciplinas[i]}
+        disciplina={ dadosUsuario.disciplinas.codigo_diario[ codigosDisciplinas[i] ] }
+        cargaHoraria={ dadosUsuario.disciplinas_cargas_horarias.codigo_diario[ codigosDisciplinas[i] ] }
+        faltas={ dadosUsuario.disciplinas_faltas.codigo_diario[ codigosDisciplinas[i] ] }
+        situacao={ dadosUsuario.disciplinas_situacoes.codigo_diario[ codigosDisciplinas[i] ] }
+      />
+    );
+  }
+
+  for ( let j = ( dadosUsuario.numero_disciplinas / 2 ); j < dadosUsuario.numero_disciplinas; j++ ) {
+    dataCardReportTwo.push(
+      <CardReport 
+        key={codigosDisciplinas[j]} 
+        disciplina={ dadosUsuario.disciplinas.codigo_diario[ codigosDisciplinas[j] ] }
+        cargaHoraria={ dadosUsuario.disciplinas_cargas_horarias.codigo_diario[ codigosDisciplinas[j] ] }
+        faltas={ dadosUsuario.disciplinas_faltas.codigo_diario[ codigosDisciplinas[j] ] }
+        situacao={ dadosUsuario.disciplinas_situacoes.codigo_diario[ codigosDisciplinas[j] ] }
+      />  
+    );
+  }
+
   return (
     <div>
       <Header />
@@ -21,54 +56,32 @@ function Perfil() {
 
         <div className="body--data-user-col">
 
-          <div className="data-user-col--card">
+          <Card 
+            type="1" 
+            nome={dadosUsuario.nome}
+            matricula={dadosUsuario.matricula}
+            email={dadosUsuario.email}
+            vinculo={dadosUsuario.vinculo}  
+          />
 
-            <h4>Nome: Deyvid William Silva de Medeiros</h4>
-            <h4>Matrícula: </h4>
-            <h4>E-mail: deyvidwms@gmail.com</h4>
-            <h4>Vinculo: Aluno</h4>
-
-
-          </div>
-
-          <div className="data-user-col--card">
-
-            <h4>Campus: Caicó</h4>
-            <h4>Curso: Informática</h4>
-            <h4>Situação: Matriculado</h4>
-
-          </div>
+          <Card
+            type="2"
+            campus={dadosUsuario.campus}  
+            curso={dadosUsuario.curso}  
+            situacao={dadosUsuario.situacao}
+          />
 
         </div>
 
         <div className="body--data-report-card-col">
 
-          <div className="data-report-card-col--card">
+          {dataCardReport}
 
-            <h4>Disciplina: TEC.0028 - Desenvolvimento de Sistemas Coorporativos</h4>
-            <h4>Carga horária: 80h</h4>
-            <h4>Faltas: 10</h4>
-            <h4>Situação: Aprovado</h4>
+        </div>
 
-          </div>
-          
-          <div className="data-report-card-col--card">
+        <div className="body--data-report-card-col">
 
-            <h4>Disciplina: TEC.0028 - Desenvolvimento de Sistemas Coorporativos</h4>
-            <h4>Carga horária: 80h</h4>
-            <h4>Faltas: 10</h4>
-            <h4>Situação: Aprovado</h4>
-
-          </div>
-
-          <div className="data-report-card-col--card">
-
-            <h4>Disciplina: TEC.0028 - Desenvolvimento de Sistemas Coorporativos</h4>
-            <h4>Carga horária: 80h</h4>
-            <h4>Faltas: 10</h4>
-            <h4>Situação: Aprovado</h4>
-
-          </div>
+          {dataCardReportTwo}
 
         </div>
 
@@ -76,6 +89,7 @@ function Perfil() {
 
     </div>
   );
+
 }
 
 export default Perfil;

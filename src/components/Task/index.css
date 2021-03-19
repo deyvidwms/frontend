@@ -1,0 +1,9 @@
+.task {
+  padding: 10px 50px;
+  margin: 5px 0px;
+  background-color: #27e211;
+  border-radius: 3px;
+  color: #FFF;
+  font-size: 22px;
+  min-width: 280px
+}
