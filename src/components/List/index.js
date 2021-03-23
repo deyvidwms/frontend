@@ -52,12 +52,12 @@ function List(props) {
 
 		getTasks();
 
-	}, []);
+	}, [props]);
 
 	let arrayTasks = [];
 	
 	if (tasks.length > 0) {
-		tasks.map( info => {
+		tasks.map( info => (
 			arrayTasks.push(
 				<Task
 					id={info.id}
@@ -65,7 +65,7 @@ function List(props) {
 					titulo={info.titulo}
 				/>
 			)
-		} );
+		) );
 	}
 	
   return (
