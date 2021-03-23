@@ -56,22 +56,24 @@ function List(props) {
 
 	let arrayTasks = [];
 	
-	tasks.map( info => {
-		arrayTasks.push(
-			<Task
-				id={info.id}
-				key={info.id}
-				titulo={info.titulo}
-			/>
-		)
-	} );
-	    
+	if (tasks.length > 0) {
+		tasks.map( info => {
+			arrayTasks.push(
+				<Task
+					id={info.id}
+					key={info.id}
+					titulo={info.titulo}
+				/>
+			)
+		} );
+	}
+	
   return (
 		<div>
 			<div className="lists--list" key={props.id}>
 
-					<div className="list--title">
-							<h5>{props.nome}</h5>
+					<div className="list--title" onClick={props.onClick} >
+							<h5 data-type="2" >{props.nome}</h5>
 					</div>
 
 					<div className="list--content">

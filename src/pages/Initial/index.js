@@ -1,9 +1,39 @@
 import React, { useEffect, useState } from 'react';
 
+import { MdClose } from "react-icons/md";
+
 import Header from '../../components/Header';
 import List from '../../components/List';
 
 import './index.css';
+
+function handleModalShow(e) {
+	
+	let type = e.target.getAttribute("data-type");
+	
+	let texto = e.target.innerText;
+
+	if ( type === "1" ) {
+		document.getElementById('formCadLista').style.display = 'block';
+		document.getElementById('formEditLista').style.display = 'none';
+		document.getElementsByClassName('modal')[0].style.display = 'block'
+		document.getElementsByClassName('modal')[0].style.height = '180px'
+		document.getElementsByClassName('modal-mask')[0].style.display = 'block';
+	} else if ( type === "2" ) {
+		document.getElementById('editNomeLista').value = texto;
+		document.getElementById('formCadLista').style.display = 'none';
+		document.getElementById('formEditLista').style.display = 'block';
+		document.getElementsByClassName('modal')[0].style.display = 'block'
+		document.getElementsByClassName('modal')[0].style.height = '180px'
+		document.getElementsByClassName('modal-mask')[0].style.display = 'block';
+	}
+	
+}
+
+function handleModalClose() {
+	document.getElementsByClassName('modal')[0].style.display = 'none'
+	document.getElementsByClassName('modal-mask')[0].style.display = 'none';
+}
 
 function Initial() {
 	const [dadosLista, setDadosLista] = useState([]);
@@ -59,20 +89,22 @@ function Initial() {
 		};
 
 		getListas();
-
+		
 	}, []);
 
 	let listas = [];
 
-	dadosLista.forEach( ( info, index ) => (
-		listas.push(
-			<List
-				id={info.id}
-				key={info.id}
-				nome={info.nome}
-			/>
-		)
-	) );
+	if (dadosLista.length > 0) {
+		dadosLista.forEach( ( info, index ) => (
+			listas.push(
+				<List onClick={handleModalShow}
+					id={info.id}
+					key={info.id}
+					nome={info.nome}
+				/>
+			)
+		) );
+	}
 
 	return (
 		<div>
@@ -85,7 +117,7 @@ function Initial() {
 					{listas}
 
 					<div>
-						<div className="lists--addList">
+						<div className="lists--addList" data-type="1" onClick={handleModalShow}>
 							<p>Nova Lista +</p>
 						</div>
 					</div>
@@ -95,10 +127,49 @@ function Initial() {
 			</div>
 
 			<div className="modal">
+				<div className="close" onClick={handleModalClose}>
+					<MdClose />
+				</div>
+
+				<form id="formCadLista">
+
+					<label htmlFor="">Nome da Lista</label>
+
+					<input 
+						type="text"
+						name="nomeLista"
+						id="nomeLista"
+						minLength="3"
+						placeholder="Digite o nome da lista..."
+						required
+					/>
+
+					<input type="submit" value="Cadastrar"/>
+
+				</form>
+
+				<form action="" id="formEditLista">
+					
+					<label htmlFor="">Nome da Lista</label>
+
+					<input type="hidden" name="lista" id="lista"/>
+
+					<input 
+						type="text"
+						name="editNomeLista"
+						id="editNomeLista"
+						minLength="3"
+						placeholder="Digite o nome da lista..."
+						required
+					/>
+
+					<input type="submit" value="Editar"/>
+
+				</form>
 
 			</div>
 
-			<div className="modal-mask"></div>
+			<div className="modal-mask" onClick={handleModalClose}></div>
 
     </div>
   );

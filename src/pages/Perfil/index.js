@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Header from '../../components/Header';
 import Card from '../../components/Card';
@@ -11,7 +11,7 @@ function getData() {
 }
 
 function Perfil() {
-  let [dadosUsuario, setDadosUsuario] = useState( getData() );
+  const dadosUsuario = getData();
   let codigosDisciplinas = Object.keys( dadosUsuario.disciplinas.codigo_diario );
   let dataCardReport = [];
   let dataCardReportTwo = [];

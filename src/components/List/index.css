@@ -20,6 +20,9 @@
     border-radius: 5px 5px 0px 0px;
     text-transform: uppercase;
     color: #464646;
+}
+
+.list--title > h5 {
     cursor: pointer;
 }
 
