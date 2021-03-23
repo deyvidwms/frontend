@@ -78,8 +78,61 @@ function handleTaskModalClose() {
 	document.getElementsByClassName('modal-task-mask')[0].style.display = 'none';
 }
 
+function getData() {
+  return JSON.parse( localStorage.getItem("dadosUsuario") ) || null;
+}
+
 function Initial() {
 	const [dadosLista, setDadosLista] = useState([]);
+	const [tituloLista, setTituloLista] = useState('');
+	const [tituloTask, setTituloTask] = useState('');
+	const [descricaoTask, setDescricaoTask] = useState('');
+
+  const dadosUsuario = getData();
+
+	async function handleCreateList (event) {
+		event.preventDefault();
+	
+		try {
+				
+			let xhr = new XMLHttpRequest();
+
+			xhr.open("POST", "https://todobiguewapi.herokuapp.com/api/listas/");
+			// xhr.open("POST", "http://127.0.0.1:8000/api/listas/");
+			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhr.send(`matricula=${dadosUsuario.matricula}&nome=${tituloLista}`);
+			xhr.onreadystatechange = function() {
+
+				if (xhr.readyState === 4) {
+
+					if ( xhr.status === 200 ) {
+
+						try {
+
+							let response = JSON.parse(xhr.responseText);
+
+							console.log(response);
+
+						} catch (e) {
+							console.log(e);
+						}
+													
+					} else {
+
+						console.warn("Erro no servidor");
+
+					}
+
+				}
+
+			};
+
+		} catch (error) {
+			alert(error);
+		}
+
+	};
+
 
 	useEffect( () => {
 		
@@ -134,7 +187,7 @@ function Initial() {
 		getListas();
 		
 	}, []);
-
+	
 	let listas = [];
 
 	if (dadosLista.length > 0) {
@@ -177,7 +230,7 @@ function Initial() {
 					<MdClose />
 				</div>
 
-				<form id="formCadLista">
+				<form onSubmit={handleCreateList} id="formCadLista">
 
 					<label htmlFor="">Nome da Lista</label>
 
@@ -187,6 +240,7 @@ function Initial() {
 						id="nomeLista"
 						minLength="3"
 						placeholder="Digite o nome da lista..."
+						onBlur={ e => setTituloLista( e.target.value ) }	
 						required
 					/>
 

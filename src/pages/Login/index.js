@@ -6,7 +6,9 @@ import './index.css';
 import Logo from '../../assets/images/logo-compacta.png';
 // import ImagemLogin from '../../assets/images/imagem-login.png';
 // import ImagemLogin from '../../assets/images/imagem-login-female.png';
-import ImagemLogin from '../../assets/images/alison-mascote.png';
+// import ImagemLogin from '../../assets/images/alison-mascote.png';
+// import ImagemLogin from '../../assets/images/imagem-login-gif.gif';
+import ImagemLogin from '../../assets/images/peloamor.gif';
 
 function Login() {
 
@@ -74,7 +76,6 @@ function Login() {
 
 	};
 
-
 	return (
 		
 		<div className="container">
@@ -128,7 +129,7 @@ function Login() {
 
 			<div className="container--bloco-imagem" style={{"display":"flex","justifyContent":"center", "alignItems":"center"}}>
 
-				<img src={ImagemLogin} alt=""/>
+				<img class="bloco-imagem--imagem" src={ImagemLogin} alt=""/>
 
 			</div>
 
