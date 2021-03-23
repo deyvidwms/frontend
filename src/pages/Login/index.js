@@ -22,8 +22,6 @@ function Login() {
 				let xhr = new XMLHttpRequest();
 
 				xhr.open("POST", "https://todobiguewapi.herokuapp.com/api/autentica");
-				// xhr.open("POST", "http://127.0.0.1:8000/api/autentica");
-				// xhr.setRequestHeader('Content-type', 'application/json');
 				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 				xhr.send(`matricula=${matricula}&senha=${senha}`);
 				xhr.onreadystatechange = function() {

@@ -16,7 +16,9 @@ function Perfil() {
   let dataCardReport = [];
   let dataCardReportTwo = [];
 
-  for ( let i = 0; i < ( dadosUsuario.numero_disciplinas / 2 ); i++ ) {
+  let tamanho = dadosUsuario.numero_disciplinas % 2 === 0 ? dadosUsuario.numero_disciplinas / 2 : ( dadosUsuario.numero_disciplinas / 2 ) + 0.5;
+
+  for ( let i = 0; i < tamanho; i++ ) {
     dataCardReport.push(
       <CardReport 
         key={codigosDisciplinas[i]}
@@ -28,7 +30,7 @@ function Perfil() {
     );
   }
 
-  for ( let j = ( dadosUsuario.numero_disciplinas / 2 ); j < dadosUsuario.numero_disciplinas; j++ ) {
+  for ( let j = tamanho; j < dadosUsuario.numero_disciplinas; j++ ) {
     dataCardReportTwo.push(
       <CardReport 
         key={codigosDisciplinas[j]} 
