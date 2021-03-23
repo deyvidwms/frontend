@@ -56,7 +56,7 @@ function Header() {
               <Link to="/perfil">Perfil</Link>
             </li>
             <li>
-              <a>Sair</a>
+              <Link to="/login" >Sair</Link>
             </li>
           </ul>
         </div>
