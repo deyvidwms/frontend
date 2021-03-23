@@ -12,8 +12,8 @@ function List(props) {
 
 			const xhr = new XMLHttpRequest();
 
-			// xhr.open("POST", `https://todobiguewapi.herokuapp.com/api/listas/${dadosUsuario.matricula}`);
-			xhr.open("GET", `http://127.0.0.1:8000/api/tarefas/?lista=${props.id}`);
+			xhr.open("GET", `https://todobiguewapi.herokuapp.com/api/listas/?lista=${props.id}`);
+			// xhr.open("GET", `http://127.0.0.1:8000/api/tarefas/?lista=${props.id}`);
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 			xhr.send();
 			xhr.onreadystatechange = function() {
