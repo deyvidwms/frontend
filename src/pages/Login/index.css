@@ -113,12 +113,15 @@
     height: 100vh;
     background-color:#5ce1e6;
     transition: all ease 0.3s;
+    padding-left: 250px;
 }
 
 @media (max-width: 1920px) {
+
     .bloco-imagem--imagem {
         width: 900px;
     }
+
 }
 
 @media (max-width: 1600px) {
@@ -131,6 +134,30 @@
     
 }
 
+@media (max-width: 1500px) {
+    
+    .bloco-imagem--imagem {
+        width: 790px;
+    }
+
+}
+
+@media (max-width: 1300px) {
+
+    .bloco-imagem--imagem {
+        width: 690px;
+    }
+
+}
+
+@media (max-width: 1160px) {
+
+    .bloco-imagem--imagem {
+        width: 590px;
+    }
+
+}
+
 @media (max-width: 1120px) {
     
     .bloco-login--card-form {
@@ -141,14 +168,28 @@
     
 }
 
+@media (max-width: 1000px) {
+
+    .container--bloco-imagem {
+        padding-left: 100px;
+    }
+
+}
+
 @media (max-width: 960px) {
     
     .container--bloco-login {
         width: 40vw;
     }
+
     .container--bloco-imagem {
         width: 60vw;
     }
+
+    .bloco-imagem--imagem {
+        display: none;
+    }
+
 }
 
 @media (max-width: 680px) {
@@ -162,7 +203,8 @@
     }
 
     .container--bloco-imagem {
-        width: 0vw;
+        /* width: 0vw; */
+        display: none !important;
     }
 
     .bloco-login--card-form {

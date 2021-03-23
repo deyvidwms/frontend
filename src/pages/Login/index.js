@@ -129,7 +129,7 @@ function Login() {
 
 			<div className="container--bloco-imagem" style={{"display":"flex","justifyContent":"center", "alignItems":"center"}}>
 
-				<img class="bloco-imagem--imagem" src={ImagemLogin} alt=""/>
+				<img className="bloco-imagem--imagem" src={ImagemLogin} alt=""/>
 
 			</div>
 
