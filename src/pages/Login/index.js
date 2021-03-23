@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 import './index.css';
 
 import Logo from '../../assets/images/logo-compacta.png';
+// import ImagemLogin from '../../assets/images/imagem-login.png';
+// import ImagemLogin from '../../assets/images/imagem-login-female.png';
+import ImagemLogin from '../../assets/images/alison-mascote.png';
 
 function Login() {
 
@@ -123,7 +126,9 @@ function Login() {
 
 			</div>
 
-			<div className="container--bloco-imagem">
+			<div className="container--bloco-imagem" style={{"display":"flex","justifyContent":"center", "alignItems":"center"}}>
+
+				<img src={ImagemLogin} alt=""/>
 
 			</div>
 

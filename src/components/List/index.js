@@ -5,7 +5,7 @@ import Task from '../Task';
 import './index.css';
 
 function List(props) {
-  const [tasks, setTasks] = useState([]);
+	const [tasks, setTasks] = useState([]);
 	useEffect( () => {
 		
 		function getTasks () {
@@ -25,8 +25,6 @@ function List(props) {
 						try {
 
 							const response = JSON.parse( xhr.responseText );								
-
-							console.log('tarefas', response);	
 
 							if ( typeof response.error !== "undefined" ) {
 								setTasks([]);
@@ -63,6 +61,7 @@ function List(props) {
 					id={info.id}
 					key={info.id}
 					titulo={info.titulo}
+					onClick={props.onClickEditModalTask}
 				/>
 			)
 		) );
@@ -72,7 +71,7 @@ function List(props) {
 		<div>
 			<div className="lists--list" key={props.id}>
 
-					<div className="list--title" onClick={props.onClick} >
+					<div className="list--title" onClick={props.onClickModalList} >
 							<h5 data-type="2" >{props.nome}</h5>
 					</div>
 
@@ -84,7 +83,7 @@ function List(props) {
 
 							</div>
 							
-							<button>Adicionar +</button>
+							<button data-type="1" data-lista={props.id} onClick={props.onClickModalTask}>Adicionar +</button>
 					</div>
 
 			</div>

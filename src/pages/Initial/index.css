@@ -41,7 +41,8 @@
     border-color: #777;
 }
 
-.modal {
+.modal,
+.modal-task {
     position: absolute;
     width: 25vw;
     top: 50%;
@@ -54,16 +55,19 @@
     transition: all ease 0.5s;
 }
 
-.modal > .close {
+.modal > .close,
+.modal-task > .close {
     margin: 5px 5px;
     text-align: end;
 }
 
+.modal-task > .close > svg,
 .modal > .close > svg {
     cursor: pointer;
 }
 
-.modal-mask {
+.modal-mask,
+.modal-task-mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -84,8 +88,18 @@
     display: none;
 }
 
+#formCadTask,  
+#formEditTask {
+    width: 100%;
+    height: 310px;
+    padding: 0px 15px;
+    display: none;
+}
+
 #formCadLista > label,
-#formEditLista > label {
+#formCadTask > label,
+#formEditLista > label,
+#formEditTask > label {
     display: block;
     width: 100%;
     font-size: 18px;
@@ -93,7 +107,9 @@
 }
 
 #formCadLista > input[type=text],
-#formEditLista > input[type=text] {
+#formCadTask > input[type=text],
+#formEditLista > input[type=text],
+#formEditTask > input[type=text] {
     width: 100%;
     margin-top: 2px;
     margin-bottom: 10px;
@@ -106,13 +122,38 @@
 }
 
 #formCadLista > input[type=text]:focus,
-#formEditLista > input[type=text]:focus {
+#formCadTask > input[type=text]:focus,
+#formEditLista > input[type=text]:focus,
+#formEditTask > input[type=text]:focus {
+    outline-color: #6584da;
+    transform: scale(1.01);
+}
+
+#formCadTask > textarea,
+#formEditTask > textarea {
+    resize: none;
+    width: 100%;
+    height: 110px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 3px;
+    color: #000;
+    transition: all ease 0.3s;
+}
+
+#formCadTask > textarea:focus,
+#formEditTask > textarea:focus {
     outline-color: #6584da;
     transform: scale(1.01);
 }
 
 #formCadLista > input[type=submit],
-#formEditLista > input[type=submit] {
+#formCadTask > input[type=submit],
+#formEditLista > input[type=submit],
+#formEditTask > input[type=submit] {
     width: 100%;
     padding: 6px;
     font-size: 20px;
@@ -127,28 +168,35 @@
 }
 
 #formCadLista > input[type=submit]:hover, 
+#formCadTask > input[type=submit]:hover, 
 #formCadLista > input[type=submit]:focus,
+#formCadTask > input[type=submit]:focus,
 #formEditLista > input[type=submit]:hover, 
-#formEditLista > input[type=submit]:focus {
+#formEditTask > input[type=submit]:hover, 
+#formEditLista > input[type=submit]:focus,
+#formEditTask > input[type=submit]:focus {
     background-color: #06a829;
     border-color: #06a829;
     color: #FFF;
 }
 
 @media (max-width: 1180px) {
-    .modal {
+    .modal,
+    .modal-task {
         width: 40vw;
     }
 }
 
 @media (max-width: 720px) {
-    .modal {
+    .modal,
+    .modal-task {
         width: 50vw;
     }
 }
 
 @media (max-width: 550px) {
-    .modal {
+    .modal,
+    .modal-task {
         width: 70vw;
     }
 }

@@ -50,13 +50,13 @@ function Header() {
         <div className="menu--navbar">
           <ul>
             <li>
-              <Link to="/">Inicio</Link>
+              <Link tabIndex="-1" to="/">Inicio</Link>
             </li>
             <li>
-              <Link to="/perfil">Perfil</Link>
+              <Link tabIndex="-1" to="/perfil">Perfil</Link>
             </li>
             <li>
-              <Link to="/login" >Sair</Link>
+              <Link tabIndex="-1" to="/login" >Sair</Link>
             </li>
           </ul>
         </div>
