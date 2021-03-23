@@ -88,9 +88,6 @@
 
 .card-form--form-login > input[type=submit]:hover, 
 .card-form--form-login > input[type=submit]:focus {
-    /* background-color: #3b8be7;
-    border: 2px solid #3b8be7;
-    transform: scale(1.01); */
     background-color: #0f44bb;
     border-color: #0f44bb;
     color: #FFF;

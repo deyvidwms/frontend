@@ -85,8 +85,8 @@ function getData() {
 function Initial() {
 	const [dadosLista, setDadosLista] = useState([]);
 	const [tituloLista, setTituloLista] = useState('');
-	const [tituloTask, setTituloTask] = useState('');
-	const [descricaoTask, setDescricaoTask] = useState('');
+	// const [tituloTask, setTituloTask] = useState('');
+	// const [descricaoTask, setDescricaoTask] = useState('');
 
   const dadosUsuario = getData();
 
