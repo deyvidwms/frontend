@@ -100,7 +100,7 @@ function Initial() {
 		if ( document.getElementById("nomeLista").reportValidity() ) {
 
 			try {
-					
+
 				let xhr = new XMLHttpRequest();
 	
 				xhr.open("POST", "https://todobiguewapi.herokuapp.com/api/listas/");
@@ -187,8 +187,8 @@ function Initial() {
 				
 			let xhr = new XMLHttpRequest();
 
-			// xhr.open("DELETE", `https://todobiguewapi.herokuapp.com/api/listas/${lista}?concluida=1`);
-			xhr.open("DELETE", `http://127.0.0.1:8000/api/listas/${lista}?concluida=1`);
+			xhr.open("DELETE", `https://todobiguewapi.herokuapp.com/api/listas/${lista}?concluida=1`);
+			// xhr.open("DELETE", `http://127.0.0.1:8000/api/listas/${lista}?concluida=1`);
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 			xhr.send();
 			xhr.onreadystatechange = function() {
@@ -270,8 +270,8 @@ function Initial() {
 					
 				let xhr = new XMLHttpRequest();
 
-				// xhr.open("PUT", `https://todobiguewapi.herokuapp.com/api/listas/${lista}?nome=${tituloLista}`);
-				xhr.open("PUT", `http://127.0.0.1:8000/api/listas/${lista}?nome=${tituloLista}`);
+				xhr.open("PUT", `https://todobiguewapi.herokuapp.com/api/listas/${lista}?nome=${tituloLista}`);
+				// xhr.open("PUT", `http://127.0.0.1:8000/api/listas/${lista}?nome=${tituloLista}`);
 				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 				xhr.send();
 				xhr.onreadystatechange = function() {
@@ -356,8 +356,8 @@ function Initial() {
 						
 					let xhr = new XMLHttpRequest();
 
-					// xhr.open("POST", "https://todobiguewapi.herokuapp.com/api/tarefas/");
-					xhr.open("POST", `http://127.0.0.1:8000/api/tarefas/`);
+					xhr.open("POST", "https://todobiguewapi.herokuapp.com/api/tarefas/");
+					// xhr.open("POST", `http://127.0.0.1:8000/api/tarefas/`);
 					xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 					xhr.send(`titulo=${tituloTask}&descricao=${descricaoTask}&lista_id=${listaTask}`);
 					xhr.onreadystatechange = function() {
@@ -440,8 +440,8 @@ function Initial() {
 				
 			let xhr = new XMLHttpRequest();
 
-			// xhr.open("DELETE", `https://todobiguewapi.herokuapp.com/api/tarefas/${task}?concluida=1`);
-			xhr.open("DELETE", `http://127.0.0.1:8000/api/tarefas/${task}?concluida=1`);
+			xhr.open("DELETE", `https://todobiguewapi.herokuapp.com/api/tarefas/${task}?concluida=1`);
+			// xhr.open("DELETE", `http://127.0.0.1:8000/api/tarefas/${task}?concluida=1`);
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 			xhr.send();
 			xhr.onreadystatechange = function() {
@@ -525,8 +525,8 @@ function Initial() {
 						
 					let xhr = new XMLHttpRequest();
 
-					// xhr.open("PUT", `https://todobiguewapi.herokuapp.com/api/tarefas/${task}?titulo=${titulo}&descricao=${descricao}`);
-					xhr.open("PUT", `http://127.0.0.1:8000/api/tarefas/${task}?titulo=${tituloTask}&descricao=${descricaoTask}`);
+					xhr.open("PUT", `https://todobiguewapi.herokuapp.com/api/tarefas/${task}?titulo=${tituloTask}&descricao=${descricaoTask}`);
+					// xhr.open("PUT", `http://127.0.0.1:8000/api/tarefas/${task}?titulo=${tituloTask}&descricao=${descricaoTask}`);
 					xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 					xhr.send();
 					xhr.onreadystatechange = function() {

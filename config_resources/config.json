@@ -1,0 +1,8 @@
+{
+  "name": "My extension",
+  "permissions": [
+    // "https://www.google.com/"
+    "https://frontend-navy-nine.vercel.app/",
+    "http://todobiguewapi.herokuapp.com/",
+  ]
+}
