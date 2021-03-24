@@ -6,7 +6,7 @@ function CardReport(props) {
 	return (
 		<div className="data-report-card-col--card">
 			<div className="card--foto-professor">
-				<img className="foto-professor--imagem" src={props.professor_foto} />
+				<img className="foto-professor--imagem" alt="foto-professor" src={props.professor_foto} />
 			</div>
 			<div >
 				<h4>Professor: {props.professor_nome}</h4>
