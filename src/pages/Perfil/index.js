@@ -21,6 +21,9 @@ function Perfil() {
   for ( let i = 0; i < tamanho; i++ ) {
     dataCardReport.push(
       <CardReport 
+        professor_foto={ dadosUsuario.professores_fotos.codigo_diario[ codigosDisciplinas[i] ] }
+        professor_nome={ dadosUsuario.professores_nomes.codigo_diario[ codigosDisciplinas[i] ] }
+        professor_email={ dadosUsuario.professores_emails.codigo_diario[ codigosDisciplinas[i] ] }
         key={codigosDisciplinas[i]}
         disciplina={ dadosUsuario.disciplinas.codigo_diario[ codigosDisciplinas[i] ] }
         cargaHoraria={ dadosUsuario.disciplinas_cargas_horarias.codigo_diario[ codigosDisciplinas[i] ] }
@@ -33,6 +36,9 @@ function Perfil() {
   for ( let j = tamanho; j < dadosUsuario.numero_disciplinas; j++ ) {
     dataCardReportTwo.push(
       <CardReport 
+        professor_foto={ dadosUsuario.professores_fotos.codigo_diario[ codigosDisciplinas[j] ] }
+        professor_nome={ dadosUsuario.professores_nomes.codigo_diario[ codigosDisciplinas[j] ] }
+        professor_email={ dadosUsuario.professores_emails.codigo_diario[ codigosDisciplinas[j] ] }
         key={codigosDisciplinas[j]} 
         disciplina={ dadosUsuario.disciplinas.codigo_diario[ codigosDisciplinas[j] ] }
         cargaHoraria={ dadosUsuario.disciplinas_cargas_horarias.codigo_diario[ codigosDisciplinas[j] ] }
@@ -59,7 +65,7 @@ function Perfil() {
         <div className="body--data-user-col">
 
           <Card 
-            type="1" 
+            type="1"
             nome={dadosUsuario.nome}
             matricula={dadosUsuario.matricula}
             email={dadosUsuario.email}
