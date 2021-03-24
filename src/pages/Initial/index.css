@@ -42,7 +42,8 @@
 }
 
 .modal,
-.modal-task {
+.modal-task,
+.modal-mensagem {
     position: absolute;
     width: 25vw;
     top: 50%;
@@ -67,7 +68,8 @@
 }
 
 .modal-mask,
-.modal-task-mask {
+.modal-task-mask,
+.modal-mensagem-mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -180,23 +182,73 @@
     color: #FFF;
 }
 
+#formCadLista > .removeItem,
+#formCadTask > .removeItem,
+#formEditLista > .removeItem,
+#formEditTask > .removeItem {
+    width: 100%;
+    padding: 6px;
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: #fd1c1c;
+    border: 2px solid #fd1c1c;
+    border-radius: 3px;
+    color: #FFF;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    outline: none;
+}
+
+#formCadLista > .removeItem:hover,
+#formCadTask > .removeItem:hover,
+#formCadLista > .removeItem:focus,
+#formCadTask > .removeItem:focus,
+#formEditLista > .removeItem:hover,
+#formEditTask > .removeItem:hover,
+#formEditLista > .removeItem:focus,
+#formEditTask > .removeItem:focus {
+    background-color: #ec3a3a;
+    border: 2px solid #ec3a3a;
+    color: #FFF;
+}
+
+.modal-mensagem--icone {
+    text-align: center;
+    font-size: 100px;
+    margin: 20px 0px 0px 0px;
+    display: none;
+}
+
+.modal-mensagem--icone.show {
+    display: block;
+}
+
+.modal-mensagem--mensagem {
+    text-align: center;
+    font-size: 20px;
+    margin: 0px 0px 20px 0px;
+}
+
 @media (max-width: 1180px) {
     .modal,
-    .modal-task {
+    .modal-task,
+    .modal-mensagem {
         width: 40vw;
     }
 }
 
 @media (max-width: 720px) {
     .modal,
-    .modal-task {
+    .modal-task,
+    .modal-mensagem {
         width: 50vw;
     }
 }
 
 @media (max-width: 550px) {
     .modal,
-    .modal-task {
+    .modal-task,
+    .modal-mensagem {
         width: 70vw;
     }
 }

@@ -12,8 +12,8 @@ function List(props) {
 
 			const xhr = new XMLHttpRequest();
 
-			xhr.open("GET", `https://todobiguewapi.herokuapp.com/api/listas/?lista=${props.id}`);
-			// xhr.open("GET", `http://127.0.0.1:8000/api/tarefas/?lista=${props.id}`);
+			// xhr.open("GET", `https://todobiguewapi.herokuapp.com/api/listas/?lista=${props.id}`);
+			xhr.open("GET", `http://127.0.0.1:8000/api/tarefas/?lista=${props.id}`);
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 			xhr.send();
 			xhr.onreadystatechange = function() {
@@ -72,7 +72,7 @@ function List(props) {
 			<div className="lists--list" key={props.id}>
 
 					<div className="list--title" onClick={props.onClickModalList} >
-							<h5 data-type="2" >{props.nome}</h5>
+							<h5 data-type="2" data-lista={props.id} >{props.nome}</h5>
 					</div>
 
 					<div className="list--content">
