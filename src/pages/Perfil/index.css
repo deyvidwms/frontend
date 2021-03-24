@@ -42,3 +42,31 @@
     display: flex;
     flex-direction: column;
 }
+
+@media (max-width: 1520px) {
+    .content--body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .body--data-user-col,
+    .body--data-report-card-col {
+        padding-bottom: 25px
+    }
+}
+
+@media (max-width: 650px) {
+    .header--divisor-title {
+        border: none;
+        height: 2px;
+        width: 250px;
+        margin-top: 10px;
+        background-color: #000;
+    }
+
+    .content--header {
+        padding: 90px 20px 45px;
+        margin: 0px 100px;
+    }
+}
