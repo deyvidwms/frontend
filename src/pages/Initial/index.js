@@ -103,8 +103,8 @@ function Initial() {
 					
 				let xhr = new XMLHttpRequest();
 	
-				// xhr.open("POST", "https://todobiguewapi.herokuapp.com/api/listas/");
-				xhr.open("POST", "http://127.0.0.1:8000/api/listas/");
+				xhr.open("POST", "https://todobiguewapi.herokuapp.com/api/listas/");
+				// xhr.open("POST", "http://127.0.0.1:8000/api/listas/");
 				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 				xhr.send(`matricula=${dadosUsuario.matricula}&nome=${tituloLista}`);
 				xhr.onreadystatechange = function() {
