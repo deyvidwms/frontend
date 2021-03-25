@@ -72,7 +72,7 @@
     transform: scale(1.01);
 }
 
-.card-form--form-login > input[type=submit] {
+.card-form--form-login > button[type=submit] {
     width: 100%;
     padding: 6px;
     font-size: 20px;
@@ -86,8 +86,13 @@
     outline: none;
 }
 
-.card-form--form-login > input[type=submit]:hover, 
-.card-form--form-login > input[type=submit]:focus {
+button[type=submit] > svg {
+    margin-bottom: -4px; 
+    display: none;
+}
+
+.card-form--form-login > button[type=submit]:hover, 
+.card-form--form-login > button[type=submit]:focus {
     background-color: #0f44bb;
     border-color: #0f44bb;
     color: #FFF;
@@ -114,6 +119,19 @@
     background-color:#5ce1e6;
     transition: all ease 0.3s;
     padding-left: 250px;
+}
+
+.rotate {
+    animation: rodar 1s infinite;
+}
+
+@keyframes rodar {
+    0%{
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width: 1920px) {

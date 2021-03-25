@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import Card from '../../components/Card';
 import CardReport from '../../components/CardReport';
+import Loading from '../../components/Loading';
 
 import './index.css'
 
@@ -16,6 +17,11 @@ function Perfil() {
   let dataCardReport = [];
   let dataCardReportTwo = [];
 
+	setTimeout( () => {
+		document.getElementsByClassName("background-loading")[0].style.display = 'none';
+    document.getElementsByClassName("content--body")[0].style.display = 'flex';
+	}, 5000 );
+  
   let tamanho = dadosUsuario.numero_disciplinas % 2 === 0 ? dadosUsuario.numero_disciplinas / 2 : ( dadosUsuario.numero_disciplinas / 2 ) + 0.5;
 
   for ( let i = 0; i < tamanho; i++ ) {
@@ -50,6 +56,7 @@ function Perfil() {
 
   return (
     <div>
+      <Loading />
       <Header />
       
       <div className="content--header">
@@ -60,7 +67,7 @@ function Perfil() {
 
       </div>
 
-      <div className="content--body">
+      <div className="content--body" style={{'display':'none'}}>
 
         <div className="body--data-user-col">
 

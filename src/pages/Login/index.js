@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { MdRefresh } from "react-icons/md";
+
 import './index.css';
 
 import Logo from '../../assets/images/logo-compacta.png';
@@ -20,6 +22,9 @@ function Login() {
 	async function handleLogin (event) {
 		event.preventDefault();
 	
+		document.getElementById("buttonLogin").setAttribute("disabled", "disabled");
+		document.getElementsByClassName("rotate")[0].style.display = "inline";
+
 		try {
 
 			if ( matricula.length === 7 || matricula.length === 14 ) {
@@ -41,22 +46,32 @@ function Login() {
 
 								if ( ( typeof response.matricula != "undefined" && response.matricula.length > 0 ) && 
 									( typeof response.vinculo != "undefined" && response.vinculo.length > 0 ) ) {
-										
+
 									localStorage.setItem( "dadosUsuario", JSON.stringify(response) );
 									
 									history.push('/');
 
 								} else {
 									
+									document.getElementById("buttonLogin").removeAttribute("disabled");
+									document.getElementsByClassName("rotate")[0].style.display = "none";
+
 									alert('falha ao tentar logar');
 
 								}
 
 							} catch (e) {
+
+								document.getElementById("buttonLogin").removeAttribute("disabled");
+								document.getElementsByClassName("rotate")[0].style.display = "none";
+
 								console.log(e);
 							}
 														
 						} else {
+
+							document.getElementById("buttonLogin").removeAttribute("disabled");
+							document.getElementsByClassName("rotate")[0].style.display = "none";
 
 							console.warn("Erro no servidor");
 
@@ -67,10 +82,18 @@ function Login() {
 				};
 
 			} else {
+
+				document.getElementById("buttonLogin").removeAttribute("disabled");
+				document.getElementsByClassName("rotate")[0].style.display = "none";
+
 				alert('verifique novamente a matrícula informada.');
 			}
 
 		} catch (error) {
+
+			document.getElementById("buttonLogin").removeAttribute("disabled");
+			document.getElementsByClassName("rotate")[0].style.display = "none";
+
 			alert(error);
 		}
 
@@ -113,7 +136,8 @@ function Login() {
 							required 
 						/>
 						
-						<input type="submit" value="Entrar"/>
+						<button id="buttonLogin" type="submit">Entrar <MdRefresh fill="#FFF" className="rotate" /> </button>
+						{/* <input type="submit" value="Entrar"/> */}
 
 						<div className="form-login--esqueceu-senha">
 

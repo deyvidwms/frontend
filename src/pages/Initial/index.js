@@ -4,6 +4,7 @@ import { MdClose, MdCheckCircle, MdError } from "react-icons/md";
 
 import Header from '../../components/Header';
 import List from '../../components/List';
+import Loading from '../../components/Loading';
 
 import './index.css';
 
@@ -93,6 +94,10 @@ function Initial() {
 	const [descricaoTask, setDescricaoTask] = useState('');
 
   const dadosUsuario = getData();
+
+	setTimeout( () => {
+		document.getElementsByClassName("background-loading")[0].style.display = 'none';
+	}, 5000 );
 
 	async function handleCreateList (event) {
 		event.preventDefault();
@@ -673,6 +678,7 @@ function Initial() {
 
 	return (
 		<div>
+			<Loading />
 			<Header />
 
 			<div className="content">
