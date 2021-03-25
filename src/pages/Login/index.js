@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { isAuthenticated } from '../../Auth.js';
+// import { isAuthenticated } from '../../Auth.js';
 
 import { useHistory } from 'react-router-dom';
 
@@ -100,15 +100,15 @@ function Login() {
 		}
 
 	};
+// 
+	// let histAux = useHistory();
 
-	let histAux = useHistory();
-
-	isAuthenticated ? (
-		// <Redirect to="/" />
-		histAux.push('/')
-	) : (
-		console.log('')
-	);
+	// isAuthenticated ? (
+	// 	// <Redirect to="/" />
+	// 	histAux.push('/')
+	// ) : (
+	// 	console.log('')
+	// );
 
 	return (
 		
