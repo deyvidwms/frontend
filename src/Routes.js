@@ -23,7 +23,7 @@ const Routes = () => (
       <PrivateRoute exact path='/' component={() => <Initial/>} />
       <Route exact path='/login' component={() => <Login/>} />
       <PrivateRoute path='/perfil' component={() => <Perfil/>} />
-      {/* <Route component={ () => <NotFound /> } /> criar página de 404*/}
+      <Route component={ () => <Login /> } /> 
     </Switch>
   </BrowserRouter>
 );

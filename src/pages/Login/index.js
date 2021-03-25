@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+
+import { isAuthenticated } from '../../Auth.js';
+
 import { useHistory } from 'react-router-dom';
 
 import { MdRefresh } from "react-icons/md";
@@ -6,11 +9,10 @@ import { MdRefresh } from "react-icons/md";
 import './index.css';
 
 import Logo from '../../assets/images/logo-compacta.png';
-// import ImagemLogin from '../../assets/images/imagem-login.png';
-// import ImagemLogin from '../../assets/images/imagem-login-female.png';
-// import ImagemLogin from '../../assets/images/alison-mascote.png';
-// import ImagemLogin from '../../assets/images/imagem-login-gif.gif';
 import ImagemLogin from '../../assets/images/peloamor.gif';
+
+
+
 
 function Login() {
 
@@ -98,6 +100,15 @@ function Login() {
 		}
 
 	};
+
+	let histAux = useHistory();
+
+	isAuthenticated ? (
+		// <Redirect to="/" />
+		histAux.push('/')
+	) : (
+		console.log('')
+	);
 
 	return (
 		

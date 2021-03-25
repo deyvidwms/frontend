@@ -24,6 +24,10 @@ function handleMenuHidden () {
   menu.removeAttribute("class");
 }
 
+function handleLogout () {
+  localStorage.removeItem("dadosUsuario");
+}
+
 function Header() {
   const dadosUsuario = getData();
 
@@ -56,7 +60,7 @@ function Header() {
               <Link tabIndex="-1" to="/perfil">Perfil</Link>
             </li>
             <li>
-              <Link tabIndex="-1" to="/login" >Sair</Link>
+              <Link tabIndex="-1" to="/login" onClick={handleLogout} >Sair</Link>
             </li>
           </ul>
         </div>
